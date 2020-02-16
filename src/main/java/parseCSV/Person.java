@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class Person {
 
     private static final Logger log = Logger.getLogger(Person.class.getName());
-    private String name = null;
+    private String name = "";
     private List<String> attributes = new ArrayList<>();
 
     private Person() {
@@ -16,7 +16,7 @@ public class Person {
     Person(String name, List<String> attributes) {
         this.name = name;
         this.attributes = attributes;
-        log.info(this.toString());
+        log.fine(this.toString());
     }
 
     @Override
@@ -24,7 +24,8 @@ public class Person {
         StringBuilder stringBuilder = new StringBuilder();
         for (String s : attributes) {
             stringBuilder.append(s);
+            stringBuilder.append("\t");
         }
-        return "\n\n\nname\n" + stringBuilder.toString();
+        return "\n\n\n" + name + "\n" + stringBuilder.toString();
     }
 }

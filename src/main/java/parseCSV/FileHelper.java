@@ -46,7 +46,7 @@ public class FileHelper {
                 addPerson(s);
             }
         }
-        log.fine(people.toString());
+        log.info(people.toString());
     }
 
     private void addAttribute(String s) {
@@ -54,7 +54,6 @@ public class FileHelper {
     }
 
     private void addPerson(String name) {
-        log.fine(attributes.toString());
         person = new Person(name, attributes);
         people.add(person);
         person = null;
