@@ -9,16 +9,16 @@ public class App {
     private static final Logger log = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
 
-    private void foo() throws IOException {
+    private void run() throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
-        log.info(properties.toString());
-        MyFileReader myFileReader = new MyFileReader(properties);
+        log.fine(properties.toString());
+        FileHelper myFileReader = new FileHelper(properties);
         myFileReader.readFile();
-        myFileReader.foo();
+        myFileReader.processLines();
     }
 
     public static void main(String[] args) throws IOException {
-        new App().foo();
+        new App().run();
     }
 
 }

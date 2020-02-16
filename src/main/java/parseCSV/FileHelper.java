@@ -8,17 +8,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
-public class MyFileReader {
+public class FileHelper {
 
-    private static final Logger log = Logger.getLogger(MyFileReader.class.getName());
+    private static final Logger log = Logger.getLogger(FileHelper.class.getName());
     private Properties properties = null;
-    private List<String> lines = null;//new ArrayList<String>();
+    private List<String> lines = null;
 
-    private MyFileReader() {
+    private FileHelper() {
     }
 
-    public MyFileReader(Properties properties) {
+    public FileHelper(Properties properties) {
         this.properties = properties;
     }
 
@@ -30,10 +31,11 @@ public class MyFileReader {
         log.fine(lines.toString());
     }
 
-    public void foo() {
+    public void processLines() {
+        String regex = "\\D";
         boolean isDigit = false;
         for (String s : lines) {
-            isDigit = s.matches("\\d");
+            isDigit = Pattern.matches(regex, s);
             log.info(s + "\t\t" + Boolean.toString(isDigit)
             );
 
