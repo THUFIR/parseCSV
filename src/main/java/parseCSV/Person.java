@@ -18,6 +18,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return "\n\n\nname\n" + attributes.toString();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s : attributes) {
+            stringBuilder.append(s);
+        }
+        return "\n\n\nname\n" + stringBuilder.toString();
     }
 }

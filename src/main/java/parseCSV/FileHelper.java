@@ -27,7 +27,7 @@ public class FileHelper {
     }
 
     public void readFile() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("dataFile")));
+        BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("dummyFile")));
         lines = new ArrayList();
         reader.lines().forEach(line -> lines.add(line));
         Collections.reverse(lines);
@@ -46,6 +46,7 @@ public class FileHelper {
                 addPerson(s);
             }
         }
+        log.fine(people.toString());
     }
 
     private void addAttribute(String s) {
@@ -53,8 +54,8 @@ public class FileHelper {
     }
 
     private void addPerson(String s) {
+        log.fine(attributes.toString());
         person = new Person(s, attributes);
-        log.info(person.toString());
         people.add(person);
         person = null;
         attributes = new ArrayList<>();
