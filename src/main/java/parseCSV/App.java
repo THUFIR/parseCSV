@@ -14,6 +14,7 @@ public class App {
         log.info(properties.toString());
         MyFileReader myFileReader = new MyFileReader(properties);
         myFileReader.readFile();
+        myFileReader.foo();
     }
 
     public static void main(String[] args) throws IOException {

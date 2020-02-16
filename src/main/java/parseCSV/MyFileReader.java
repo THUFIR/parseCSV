@@ -30,4 +30,14 @@ public class MyFileReader {
         log.info(lines.toString());
     }
 
+    public void foo() {
+        boolean isDigit = false;
+        for (String s : lines) {
+            isDigit = s.matches("\\d");
+            if (isDigit) {
+                log.info(s + Boolean.toString(isDigit));
+            }
+        }
+    }
+
 }
