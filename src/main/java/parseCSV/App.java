@@ -7,11 +7,13 @@ import java.util.logging.Logger;
 public class App {
 
     private static final Logger log = Logger.getLogger(App.class.getName());
-    private Properties props = new Properties();
+    private Properties properties = new Properties();
 
     private void foo() throws IOException {
-        props.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
-        log.info(props.toString());
+        properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
+        log.info(properties.toString());
+        Foo foo = new Foo(properties);
+        foo.bar();
     }
 
     public static void main(String[] args) throws IOException {
