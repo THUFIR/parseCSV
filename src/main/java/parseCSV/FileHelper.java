@@ -27,7 +27,7 @@ public class FileHelper {
     }
 
     public void readFile() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("dummyFile")));
+        BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("dataFile")));
         lines = new ArrayList();
         reader.lines().forEach(line -> lines.add(line));
         Collections.reverse(lines);

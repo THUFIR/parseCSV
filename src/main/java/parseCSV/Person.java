@@ -16,7 +16,6 @@ public class Person {
     Person(String name, List<String> attributes) {
         this.name = name;
         this.attributes = attributes;
-        log.fine(this.toString());
     }
 
     @Override
