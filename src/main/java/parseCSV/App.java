@@ -12,8 +12,8 @@ public class App {
     private void foo() throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         log.info(properties.toString());
-        Foo foo = new Foo(properties);
-        foo.bar();
+        MyFileReader myFileReader = new MyFileReader(properties);
+        myFileReader.readFile();
     }
 
     public static void main(String[] args) throws IOException {
