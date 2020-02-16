@@ -40,7 +40,7 @@ public class FileHelper {
         for (String s : lines) {
             isDigit = Pattern.matches(regex, s);
             log.fine(s + "\t\t" + Boolean.toString(isDigit));
-            if (isDigit) {
+            if (!isDigit) {
                 addAttribute(s);
             } else {
                 addPerson(s);
@@ -53,9 +53,9 @@ public class FileHelper {
         attributes.add(s);
     }
 
-    private void addPerson(String s) {
+    private void addPerson(String name) {
         log.fine(attributes.toString());
-        person = new Person(s, attributes);
+        person = new Person(name, attributes);
         people.add(person);
         person = null;
         attributes = new ArrayList<>();
