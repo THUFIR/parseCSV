@@ -15,6 +15,9 @@ public class FileHelper {
     private static final Logger log = Logger.getLogger(FileHelper.class.getName());
     private Properties properties = null;
     private List<String> lines = null;
+    private Person person = null;
+    private List<Person> people = new ArrayList<>();
+    private List<String> attributes = new ArrayList<>();
 
     private FileHelper() {
     }
@@ -32,14 +35,29 @@ public class FileHelper {
     }
 
     public void processLines() {
-        String regex = "\\D";
+        String regex = "\\D+";
         boolean isDigit = false;
         for (String s : lines) {
             isDigit = Pattern.matches(regex, s);
-            log.info(s + "\t\t" + Boolean.toString(isDigit)
-            );
-
+            log.fine(s + "\t\t" + Boolean.toString(isDigit));
+            if (isDigit) {
+                addAttribute(s);
+            } else {
+                addPerson(s);
+            }
         }
+    }
+
+    private void addAttribute(String s) {
+        attributes.add(s);
+    }
+
+    private void addPerson(String s) {
+        person = new Person(s, attributes);
+        log.info(person.toString());
+        people.add(person);
+        person = null;
+        attributes = new ArrayList<>();
     }
 
 }
