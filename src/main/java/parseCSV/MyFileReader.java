@@ -27,16 +27,16 @@ public class MyFileReader {
         lines = new ArrayList();
         reader.lines().forEach(line -> lines.add(line));
         Collections.reverse(lines);
-        log.info(lines.toString());
+        log.fine(lines.toString());
     }
 
     public void foo() {
         boolean isDigit = false;
         for (String s : lines) {
             isDigit = s.matches("\\d");
-            if (isDigit) {
-                log.info(s + Boolean.toString(isDigit));
-            }
+            log.info(s + "\t\t" + Boolean.toString(isDigit)
+            );
+
         }
     }
 
